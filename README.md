@@ -1,8 +1,10 @@
 # YiiCalendar Extension
 
-This is an enhanced and partially rewritten version of [`ecalendarview` extension](http://www.yiiframework.com/extension/ecalendarview/) for Yii 1.x.
+This is a Yii 1.x widget, which allows you to put a quite simple, yet very configurable calendar anywhere within your application. Month, week and day views are supported. Most calendar items (including each day in calendar) are rendered as separate subviews, which gives you maximum control power over how this calendar looks and behaves.
 
-Changes includes:
+Note, that this is pure-presentation, read-only calendar. You can present your data only. If you're looking for rich, user-enabled solution (like Google Calendar), which allows end-user to add, modify and delete events etc., you're most certainly in a wrong place.
+
+This is an enhanced and partially rewritten version of [`ecalendarview` extension](http://www.yiiframework.com/extension/ecalendarview/). Changes includes:
 
 - shorter names for classes (widgets) :],
 - some basic, default CSS styling (original extension has no default styling),
@@ -70,7 +72,7 @@ These changes includes:
 - arrows (navigation links) have different style (`table.e-calendar-view a.navigation-link`),
 - calendar headers have background and border styled in greys (`table.e-calendar-view thead th`).
 
-You can override these styles per application by adding `/css/calendar.css` (path is relative to app's root) file and running widget with `'cssFile'=>'css/calendar.css'` property set (you can, of course, change or adapt paths as much as you want). You can also change these styles permanently (edit `extensions/yiicalendar/assets/styles.css` file). But this is highly not recommended way of doing this.
+You can override these styles per application by adding `/css/calendar.css` (path is relative to app's root) file and running widget with `'cssFile'=>'css/calendar.css'` property set (you can, of course, change or adapt paths as much as you want). You can also change these styles permanently (edit `extensions/yiicalendar/assets/styles.css` file). But this is **highly not recommended way**.
 
 I have also changed line arrows (`&larr;` and `&rarr;`) are changes to double arrows (`&laquo;` and `&raquo;`) in navigation links pane.
 
@@ -80,7 +82,7 @@ Note, that due to a strange nature of how original extension register assets, yo
 
 And, both assets (`styles.css` and `yiicalendar.js`) are published to separate folders in your app's assets directory, because they're registered in two separate condition checkings (styles are published and registered only, if user is not using custom styles and Javascript code is published and registered only, if `ajaxUpdate` property is set to `TRUE` (by default, it is), that is -- calendar is updated via AJAX.
 
-I didn't change it, though I find this strange, because I didn't have enough time. Refer to `YiiCalendar::init()` method, if you don't like this and would like to change this behavior.
+I didn't change this, because I didn't have enough time. Refer to `YiiCalendar::init()` method, if you don't like this and would like to change this behavior.
 
 ## Days links
 
