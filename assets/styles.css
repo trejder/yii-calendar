@@ -8,15 +8,35 @@
  */
 
 table.e-calendar-view thead th,
-table.e-calendar-view tbody td {
-  padding: 4px 5px;
+table.e-calendar-view tbody td
+{
+  padding: 2px;
   text-align: center;
 }
 
-table.e-calendar-view td.current {
-  font-weight: bold;
+table.e-calendar-view thead th
+{
+    color: #777;
+    font-weight: normal;
+    background-color: #eee;
+    border: 1px solid #ccc;
 }
 
-table.e-calendar-view td.not-relevant {
-  color: rgb(221, 221, 221);
+table.e-calendar-view thead tr.weekdays-row th {font-size: 14px;}
+
+table.e-calendar-view tbody td
+{
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
 }
+
+table.e-calendar-view td.current
+{
+  font-weight: bold;
+  background-color: #C3D6E4;
+}
+
+table.e-calendar-view td.not-relevant {color: rgb(221, 221, 221);}
+
+table.e-calendar-view a.navigation-link {font-size: 21px}

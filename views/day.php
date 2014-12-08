@@ -12,7 +12,7 @@
 <thead>
   <tr class="month-year-row">
     <th class="previous">
-      <?php echo CHtml::link('&larr;', $previousUrl, array('class' => 'navigation-link')); ?>
+      <?php echo CHtml::link('&laquo;', $previousUrl, array('class' => 'navigation-link')); ?>
     </th>
     <th class="month-year">
       <?php $this->getOwner()->renderFile($titleViewFile, array(
@@ -20,7 +20,7 @@
       )); ?>
     </th>
     <th class="next">
-      <?php echo CHtml::link('&rarr;', $nextUrl, array('class' => 'navigation-link')); ?>
+      <?php echo CHtml::link('&raquo;', $nextUrl, array('class' => 'navigation-link')); ?>
     </th>
   </tr>
   <tr class="weekdays-row">
