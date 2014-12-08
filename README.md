@@ -7,7 +7,6 @@ Changes includes:
 - shorter names for classes (widgets) :],
 - some basic, default CSS styling (original extension has no default styling),
 - an ability to pass additional data to make selected days a links to some URLs,
-- support for locales (non-English calendars) through PHP's locale system (it is not using `Yii:t`!),
 - fixed path including (no need to add `Yii::setPathOfAlias('ecalendarview', ...)` in app's config file.
 
 In addition `doc` folder has been removed from original repository, as it contains only files relevant to base `ecalendarview` extension (ancestor), not to this extension.
@@ -84,3 +83,7 @@ Note, that due to a strange nature of how original extension register assets, yo
 And, both assets (`styles.css` and `yiicalendar.js`) are published to separate folders in your app's assets directory, because they're registered in two separate condition checkings (styles are published and registered only, if user is not using custom styles and Javascript code is published and registered only, if `ajaxUpdate` property is set to `TRUE` (by default, it is), that is -- calendar is updated / changed via AJAX.
 
 I didn't change that, though I find this strange, because I didn't have enough time. Refer to `YiiCalendar::init()` method, if you don't like this and would like to change this behavior.
+
+## Days links
+
+This extension introduces new property called `linksArray`, which is an array of `'timestamp'=>'url'` sets to add links to certain dates.

@@ -47,6 +47,11 @@ class YiiCalendar extends CWidget {
    */
   private $_ajaxUpdate;
 
+    /**
+   * @var array Array of 'timestamp'=>'url' sets to add links to certain dates.
+   */
+  private $_linksArray;
+
   /**
    * Constructs the calendar and sets it's attributes to default values.
    * @param CBaseController $owner The owner of calendar.
@@ -58,6 +63,7 @@ class YiiCalendar extends CWidget {
     $this->_titleView = null;
     $this->_weeksInRow = 1;
     $this->_cssFile = null;
+    $this->_linksArray = array();
     $this->_ajaxUpdate = true;
     $this->getDataProvider()->getPagination()->setPageIndexVar($this->getId(true) . '_page');
   }
@@ -105,6 +111,14 @@ class YiiCalendar extends CWidget {
   }
 
   /**
+   * @see YiiCalendar::$_linksArray
+   */
+  public function setLinksArray($linksArray)
+  {
+      $this->_linksArray = $linksArray;
+  }
+
+  /**
    * @see YiiCalendar::$_ajaxUpdate
    */
   public function setAjaxUpdate($ajaxUpdate) {
@@ -144,6 +158,14 @@ class YiiCalendar extends CWidget {
    */
   public function getCssFile() {
     return $this->_cssFile;
+  }
+
+  /**
+   * @see YiiCalendar::$_linksArray
+   */
+  public function getLinksArray()
+  {
+    return $this->_linksArray;
   }
 
   /**

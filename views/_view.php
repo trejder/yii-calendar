@@ -10,4 +10,3 @@
 ?>
 
 <?php echo CHtml::encode($data->date->format('j')); ?>
-
