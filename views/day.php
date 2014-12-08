@@ -2,8 +2,9 @@
 /**
  * day.php
  *
- * @author Martin Ludvik <matolud@gmail.com>
- * @copyright Copyright &copy; 2014 by Martin Ludvik
+ * @author (yiicalendar extension) Tomasz Trejderowski <tomasz@trejderowski.pl>
+ * @author (ecalendarview extension) Martin Ludvik <matolud@gmail.com>
+ * @copyright Copyright &copy; 2014 by Tomasz Trejderowski & Martin Ludvik
  * @license http://opensource.org/licenses/MIT MIT license
  */
 ?>
@@ -24,7 +25,7 @@
   </tr>
   <tr class="weekdays-row">
     <th class="<?php echo strtolower($data[0]->getDate()->format('F')); ?>" colspan="3">
-      <?php echo Yii::t('ecalendarview', $data[0]->getDate()->format('D')); ?>
+      <?php echo Yii::t('yiicalendar', $data[0]->getDate()->format('D')); ?>
     </th>
   </tr>
 </thead>

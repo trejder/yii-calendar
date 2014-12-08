@@ -1,21 +1,24 @@
 <?php
 /**
- * ECalendarView.php
+ * YiiCalendar.php
  *
- * @author Martin Ludvik <matolud@gmail.com>
- * @copyright Copyright &copy; 2014 by Martin Ludvik
+ * @author (yiicalendar extension) Tomasz Trejderowski <tomasz@trejderowski.pl>
+ * @author (ecalendarview extension) Martin Ludvik <matolud@gmail.com>
+ * @copyright Copyright &copy; 2014 by Tomasz Trejderowski & Martin Ludvik
  * @license http://opensource.org/licenses/MIT MIT license
  */
 
-Yii::import('ecalendarview.ECalendarViewDataProvider');
+Yii::setPathOfAlias('yiicalendar', realpath(dirname(__FILE__)));
+
+Yii::import('yiicalendar.YiiCalendarDataProvider');
 
 /**
  * The calendar view renders days using customizable view.
  */
-class ECalendarView extends CWidget {
+class YiiCalendar extends CWidget {
 
   /**
-   * @var ECalendarViewDataProvider The data provider.
+   * @var YiiCalendarDataProvider The data provider.
    */
   private $_dataProvider;
 
@@ -30,7 +33,7 @@ class ECalendarView extends CWidget {
   private $_titleView;
 
   /**
-   * @var int The number of weeks that is be rendered in one row. Valid values are 1 - 3. Has effect only with page size set to @link{ECalendarViewPageSize::MONTH}.
+   * @var int The number of weeks that is be rendered in one row. Valid values are 1 - 3. Has effect only with page size set to @link{YiiCalendarPageSize::MONTH}.
    */
   private $_weeksInRow;
 
@@ -50,7 +53,7 @@ class ECalendarView extends CWidget {
    */
   public function __construct(CBaseController $owner) {
     parent::__construct($owner);
-    $this->_dataProvider = new ECalendarViewDataProvider();
+    $this->_dataProvider = new YiiCalendarDataProvider();
     $this->_itemView = null;
     $this->_titleView = null;
     $this->_weeksInRow = 1;
@@ -70,81 +73,81 @@ class ECalendarView extends CWidget {
   }
 
   /**
-   * @see ECalendarView::$_weeksInRow
+   * @see YiiCalendar::$_weeksInRow
    */
   public function setWeeksInRow($weeksInRow) {
     $weeksInRow = (int) $weeksInRow;
     if($weeksInRow < 1 || $weeksInRow > 3) {
-      throw new CException(Yii::t('ecalendarview', 'Weeks in Row is out of permitted values. See documentation for more information.'));
+      throw new CException(Yii::t('yiicalendar', 'Weeks in Row is out of permitted values. See documentation for more information.'));
     }
     $this->_weeksInRow = $weeksInRow;
   }
 
   /**
-   * @see ECalendarView::$_itemView
+   * @see YiiCalendar::$_itemView
    */
   public function setItemView($itemView) {
     $this->_itemView = $itemView;
   }
 
   /**
-   * @see ECalendarView::$_titleView
+   * @see YiiCalendar::$_titleView
    */
   public function setTitleView($titleView) {
     $this->_titleView = $titleView;
   }
 
   /**
-   * @see ECalendarView::$_cssFile
+   * @see YiiCalendar::$_cssFile
    */
   public function setCssFile($cssFile) {
     $this->_cssFile = $cssFile;
   }
 
   /**
-   * @see ECalendarView::$_ajaxUpdate
+   * @see YiiCalendar::$_ajaxUpdate
    */
   public function setAjaxUpdate($ajaxUpdate) {
     $this->_ajaxUpdate = (boolean) $ajaxUpdate;
   }
 
   /**
-   * @see ECalendarView::$_dataProvider
+   * @see YiiCalendar::$_dataProvider
    */
   public function getDataProvider() {
     return $this->_dataProvider;
   }
 
   /**
-   * @see ECalendarView::$_weeksInRow
+   * @see YiiCalendar::$_weeksInRow
    */
   public function getWeeksInRow() {
     return $this->_weeksInRow;
   }
 
   /**
-   * @see ECalendarView::$_itemView
+   * @see YiiCalendar::$_itemView
    */
   public function getItemView() {
     return $this->_itemView;
   }
 
   /**
-   * @see ECalendarView::$_titleView
+   * @see YiiCalendar::$_titleView
    */
   public function getTitleView() {
     return $this->_titleView;
   }
 
   /**
-   * @see ECalendarView::$_cssFile
+   * @see YiiCalendar::$_cssFile
    */
   public function getCssFile() {
     return $this->_cssFile;
   }
 
   /**
-   * @see ECalendarView::$_ajaxUpdate
+   * @see YiiCalendar::$_ajaxUpdate
    */
   public function getAjaxUpdatE() {
     return $this->_ajaxUpdate;
@@ -161,10 +164,10 @@ class ECalendarView extends CWidget {
 
     // register js
     if($this->getAjaxUpdate()) {
-      $jsFilePath = $this->resolveJsFilePath('ecalendarview.js');
+      $jsFilePath = $this->resolveJsFilePath('yiicalendar.js');
       $publishedJsFilePath = Yii::app()->getAssetManager()->publish($jsFilePath);
       Yii::app()->clientScript->registerScriptFile($publishedJsFilePath, CClientScript::POS_END);
-      Yii::app()->clientScript->registerScript('e-calendar-view', 'jQuery(\'.e-calendar-view\').ecalendarview();');
+      Yii::app()->clientScript->registerScript('e-calendar-view', 'jQuery(\'.e-calendar-view\').yiicalendar();');
     }
 
     parent::init();
@@ -217,11 +220,11 @@ class ECalendarView extends CWidget {
 
   private function resolveDaysInWeek() {
     switch($this->getDataProvider()->getPagination()->getPageSize()) {
-      case ECalendarViewPageSize::MONTH:
+      case YiiCalendarPageSize::MONTH:
         return $this->_weeksInRow * 7;
-      case ECalendarViewPageSize::WEEK:
+      case YiiCalendarPageSize::WEEK:
         return 7;
-      case ECalendarViewPageSize::DAY:
+      case YiiCalendarPageSize::DAY:
         return 1;
     }
   }

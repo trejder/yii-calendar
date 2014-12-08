@@ -1,16 +1,17 @@
 <?php
 /**
- * ECalendarViewItem.php
+ * YiiCalendarItem.php
  *
- * @author Martin Ludvik <matolud@gmail.com>
- * @copyright Copyright &copy; 2014 by Martin Ludvik
+ * @author (yiicalendar extension) Tomasz Trejderowski <tomasz@trejderowski.pl>
+ * @author (ecalendarview extension) Martin Ludvik <matolud@gmail.com>
+ * @copyright Copyright &copy; 2014 by Tomasz Trejderowski & Martin Ludvik
  * @license http://opensource.org/licenses/MIT MIT license
  */
 
 /**
- * The item is model for rendering day's cell content by {@link ECalendarView}.
+ * The item is model for rendering day's cell content by {@link YiiCalendar}.
  */
-class ECalendarViewItem extends CComponent {
+class YiiCalendarItem extends CComponent {
 
   /**
    * @var DateTime The date of day.
@@ -42,42 +43,42 @@ class ECalendarViewItem extends CComponent {
   }
 
   /**
-   * @see ECalendarViewItem::$_date
+   * @see YiiCalendarItem::$_date
    */
   public function setDate(DateTime $date) {
     $this->_date = $date;
   }
 
   /**
-   * @see ECalendarViewItem::$_isCurrentDate
+   * @see YiiCalendarItem::$_isCurrentDate
    */
   public function setIsCurrentDate($isCurrentDate) {
     $this->_isCurrentDate = (boolean) $isCurrentDate;
   }
 
   /**
-   * @see ECalendarViewItem::$_isRelevantDate
+   * @see YiiCalendarItem::$_isRelevantDate
    */
   public function setIsRelevantDate($isRelevantDate) {
     $this->_isRelevantDate = (boolean) $isRelevantDate;
   }
 
   /**
-   * @see ECalendarViewItem::$_date
+   * @see YiiCalendarItem::$_date
    */
   public function getDate() {
     return $this->_date;
   }
 
   /**
-   * @see ECalendarViewItem::$_isCurrentDate
+   * @see YiiCalendarItem::$_isCurrentDate
    */
   public function getIsCurrentDate() {
     return $this->_isCurrentDate;
   }
 
   /**
-   * @see ECalendarViewItem::$_isRelevantDate
+   * @see YiiCalendarItem::$_isRelevantDate
    */
   public function getIsRelevantDate() {
     return $this->_isRelevantDate;

@@ -2,8 +2,9 @@
 /**
  * month.php
  *
- * @author Martin Ludvik <matolud@gmail.com>
- * @copyright Copyright &copy; 2014 by Martin Ludvik
+ * @author (yiicalendar extension) Tomasz Trejderowski <tomasz@trejderowski.pl>
+ * @author (ecalendarview extension) Martin Ludvik <matolud@gmail.com>
+ * @copyright Copyright &copy; 2014 by Tomasz Trejderowski & Martin Ludvik
  * @license http://opensource.org/licenses/MIT MIT license
  */
 ?>
@@ -25,7 +26,7 @@
   <tr class="weekdays-row">
     <?php for($i = 0; $i < $daysInRow; ++ $i): ?>
       <th class="<?php echo strtolower($data[$i]->getDate()->format('D')); ?>">
-        <?php echo Yii::t('ecalendarview', $data[$i]->getDate()->format('D')); ?>
+        <?php echo Yii::t('yiicalendar', $data[$i]->getDate()->format('D')); ?>
       </th>
     <?php endfor ?>
   </tr>

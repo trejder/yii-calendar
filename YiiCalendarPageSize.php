@@ -1,16 +1,17 @@
 <?php
 /**
- * ECalendarViewPageSize.php
+ * YiiCalendarPageSize.php
  *
- * @author Martin Ludvik <matolud@gmail.com>
- * @copyright Copyright &copy; 2014 by Martin Ludvik
+ * @author (yiicalendar extension) Tomasz Trejderowski <tomasz@trejderowski.pl>
+ * @author (ecalendarview extension) Martin Ludvik <matolud@gmail.com>
+ * @copyright Copyright &copy; 2014 by Tomasz Trejderowski & Martin Ludvik
  * @license http://opensource.org/licenses/MIT MIT license
  */
 
 /**
- * The page size is enumeration of possible pagination types for {@link ECalendarViewPagination}.
+ * The page size is enumeration of possible pagination types for {@link YiiCalendarPagination}.
  */
-class ECalendarViewPageSize extends CEnumerable {
+class YiiCalendarPageSize extends CEnumerable {
 
   /**
    * The month pagination.
