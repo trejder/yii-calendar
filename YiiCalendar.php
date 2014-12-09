@@ -48,7 +48,7 @@ class YiiCalendar extends CWidget {
   private $_ajaxUpdate;
 
     /**
-   * @var array Array of 'timestamp'=>'url' sets to add links to certain dates.
+   * @var array Array of 'timestamp'=>'url' or 'timestamp'=>'htmlOptions' sets to add links to certain dates.
    */
   private $_linksArray;
 
@@ -56,8 +56,10 @@ class YiiCalendar extends CWidget {
    * Constructs the calendar and sets it's attributes to default values.
    * @param CBaseController $owner The owner of calendar.
    */
-  public function __construct(CBaseController $owner) {
+  public function __construct(CBaseController $owner)
+  {
     parent::__construct($owner);
+
     $this->_dataProvider = new YiiCalendarDataProvider();
     $this->_itemView = null;
     $this->_titleView = null;
@@ -65,6 +67,7 @@ class YiiCalendar extends CWidget {
     $this->_cssFile = null;
     $this->_linksArray = array();
     $this->_ajaxUpdate = true;
+
     $this->getDataProvider()->getPagination()->setPageIndexVar($this->getId(true) . '_page');
   }
 
@@ -178,20 +181,36 @@ class YiiCalendar extends CWidget {
   /**
    * Initializes the calendar.
    */
-  public function init() {
-    // register css
+  public function init()
+  {
+    /**
+     * Register CSS.
+     */
     $cssFilePath = $this->resolveCssFilePath($this->getCssFile(), 'styles.css');
     $publishedCssFilePath = Yii::app()->getAssetManager()->publish($cssFilePath);
+    
     Yii::app()->clientScript->registerCssFile($publishedCssFilePath);
 
-    // register js
-    if($this->getAjaxUpdate()) {
+    /**
+     * Register JS.
+     */
+    if($this->getAjaxUpdate())
+    {
       $jsFilePath = $this->resolveJsFilePath('yiicalendar.js');
       $publishedJsFilePath = Yii::app()->getAssetManager()->publish($jsFilePath);
+
       Yii::app()->clientScript->registerScriptFile($publishedJsFilePath, CClientScript::POS_END);
       Yii::app()->clientScript->registerScript('e-calendar-view', 'jQuery(\'.e-calendar-view\').yiicalendar();');
     }
 
+    /**
+     * Pass links array to @link YiiCalendarDataProvider.
+     */
+    $this->getDataProvider()->setLinksArray($this->getLinksArray());
+
+    /**
+     * Finish init sequence.
+     */
     parent::init();
   }
 

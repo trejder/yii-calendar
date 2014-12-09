@@ -58,7 +58,7 @@
         ?>
         <td class="<?php echo $classesStr; ?>">
           <?php $this->getOwner()->renderFile($itemViewFile, array(
-            'data' => $data[$i],
+            'data' => $data[$i]
           )); ?>
         </td>
       <?php endfor ?>

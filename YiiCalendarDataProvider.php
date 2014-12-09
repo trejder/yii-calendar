@@ -22,6 +22,11 @@ class YiiCalendarDataProvider extends CComponent {
   private $_pagination;
 
   /**
+   * @var array Array of 'timestamp'=>'url' or 'timestamp'=>'htmlOptions' sets to add links to certain dates.
+   */
+  private $_linksArray;
+
+  /**
    * Constructs the data provider and sets it's attributes to default values.
    * @param array $config The attributes as key=>value map.
    */
@@ -44,6 +49,14 @@ class YiiCalendarDataProvider extends CComponent {
   }
 
   /**
+   * @see YiiCalendarDataProvider::$_linksArray
+   */
+  public function setLinksArray($linksArray)
+  {
+      $this->_linksArray = $linksArray;
+  }
+
+  /**
    * @see YiiCalendarDataProvider::$_pagination
    */
   public function getPagination() {
@@ -51,21 +64,52 @@ class YiiCalendarDataProvider extends CComponent {
   }
 
   /**
+   * @see YiiCalendar::$_linksArray
+   */
+  public function getLinksArray()
+  {
+    return $this->_linksArray;
+  }
+
+  /**
    * Retrieves the data.
    * @return array The array of {@link YiiCalendarItem}s.
    */
-  public function getData() {
+  public function getData()
+  {
     $data = array();
-    $startDate = $this->getPagination()->getFirstPageDate();
+    $dateFormat = 'Ymd';
+
+    /**
+     * Purge dates used as keys in @link $this->_linksArray to an acceptable format.
+     */
+    $newLinks = array();
+
+    foreach($this->getLinksArray() as $linkDate=>$linkData)
+    {
+      $theDate = date_create($linkDate);
+
+      if($theDate) $newLinks[$theDate->format($dateFormat)] = $linkData;
+    }
+
+    $this->setLinksArray($newLinks);
+    $links = $this->getLinksArray();
+
     $endDate = $this->getPagination()->getLastPageDate();
+    $startDate = $this->getPagination()->getFirstPageDate();
+
     $dateIterator = clone($startDate);
 
-    while($dateIterator <= $endDate) {
-      $data[] = new YiiCalendarItem(array(
-          'date' => clone($dateIterator),
-          'isCurrentDate' => $this->getPagination()->isCurrentDate($dateIterator),
-          'isRelevantDate' => $this->getPagination()->isRelevantDate($dateIterator),
-        ));
+    while($dateIterator <= $endDate)
+    {
+      $data[] = new YiiCalendarItem(array
+      (
+        'date'=>clone($dateIterator),
+        'isCurrentDate'=>$this->getPagination()->isCurrentDate($dateIterator),
+        'isRelevantDate'=>$this->getPagination()->isRelevantDate($dateIterator),
+        'link'=>isset($links[$dateIterator->format($dateFormat)]) ? $links[$dateIterator->format($dateFormat)] : NULL
+      ));
+
       $dateIterator->add(new DateInterval('P1D'));
     }
 

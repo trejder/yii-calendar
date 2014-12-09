@@ -35,6 +35,7 @@ table.e-calendar-view td.current
 {
   font-weight: bold;
   background-color: #C3D6E4;
+  border: 1px solid #C3D6E4;
 }
 
 table.e-calendar-view td.not-relevant {color: rgb(221, 221, 221);}

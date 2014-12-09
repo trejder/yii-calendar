@@ -1,4 +1,4 @@
-# YiiCalendar Extension
+# YiiCalendar extension
 
 This is a Yii 1.x widget, which allows you to put a quite simple, yet very configurable calendar anywhere within your application. Month, week and day views are supported. Most calendar items (including each day in calendar) are rendered as separate subviews, which gives you maximum control power over how this calendar looks and behaves.
 
@@ -6,7 +6,7 @@ Note, that this is pure-presentation, read-only calendar. You can present your d
 
 This is an enhanced and partially rewritten version of [`ecalendarview` extension](http://www.yiiframework.com/extension/ecalendarview/). Changes includes:
 
-- shorter names for classes (widgets) :],
+- shorter names for classes (widgets) and extension itself :],
 - some basic, default CSS styling (original extension has no default styling),
 - an ability to pass additional data to make selected days a links to some URLs,
 - fixed path including (no need to add `Yii::setPathOfAlias('ecalendarview', ...)` in config file.
@@ -47,7 +47,15 @@ If, for example, you'd like to have week-only calendar (showing only current wee
           )
     )); ?>
     
-Read through [original extension description](http://www.yiiframework.com/extension/ecalendarview/#hh3) for more details.
+All properties, that you can use in widget initialization are the same as in case of [original extension](http://www.yiiframework.com/extension/ecalendarview/#hh3), with exception for `itemView` property, which has been enhanced.
+
+As in `ecalendarview` extension, it specifies view to be used to render each day. If this is not defined, a default view is used. Inside that view following data can be accessed (new property in bold):
+
+- [CBaseController](http://www.yiiframework.com/doc/api/1.1/CBaseController/) `$this` - the controller,
+- [DateTime](http://php.net/manual/en/class.datetime.php) `$data->date` - the date object of particular day,
+- boolean `$data->isCurrent` - whether particular day is selected (`TRUE`),
+- **array `$data->link` - the link data for particular day** (see last section of this document),
+- boolean `$data->isRelevant` - whether particular day is part of current month (`TRUE`) or only a padding in the beginning and end of the month page (`FALSE`).
 
 ## i18n
 
@@ -86,4 +94,4 @@ I didn't change this, because I didn't have enough time. Refer to `YiiCalendar::
 
 ## Days links
 
-This extension introduces new property called `linksArray`, which is an array of `'timestamp'=>'url'` sets to add links to certain dates.
+This extension introduces new property called `linksArray`, which is an array of `'date'=>'data'` sets, used to add links to certain dates in the calendar.

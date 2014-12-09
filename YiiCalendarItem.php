@@ -19,6 +19,11 @@ class YiiCalendarItem extends CComponent {
   private $_date;
 
   /**
+   * @var array or string The link behind date.
+   */
+  private $_link;
+
+  /**
    * @var boolean True if day is the one selected in calendar, otherwise false.
    */
   private $_isCurrentDate;
@@ -32,12 +37,15 @@ class YiiCalendarItem extends CComponent {
    * Constructs the item and sets it's attributes to default values.
    * @param array $config The attributes as key=>value map.
    */
-  public function __construct(array $config = array()) {
+  public function __construct(array $config = array())
+  {
     $this->_date = null;
+    $this->_link = null;
     $this->_isCurrentDate = null;
     $this->_isRelevantDate = null;
 
-    foreach($config as $key => $value) {
+    foreach($config as $key => $value)
+    {
       $this->$key = $value;
     }
   }
@@ -47,6 +55,14 @@ class YiiCalendarItem extends CComponent {
    */
   public function setDate(DateTime $date) {
     $this->_date = $date;
+  }
+
+  /**
+   * @see YiiCalendarItem::$_link
+   */
+  public function setlink($link)
+  {
+    $this->_link = $link;
   }
 
   /**
@@ -68,6 +84,14 @@ class YiiCalendarItem extends CComponent {
    */
   public function getDate() {
     return $this->_date;
+  }
+
+  /**
+   * @see YiiCalendarItem::$_link
+   */
+  public function getLink()
+  {
+    return $this->_link;
   }
 
   /**

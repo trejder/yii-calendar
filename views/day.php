@@ -53,7 +53,7 @@
     ?>
     <td class="<?php echo $classesStr; ?>" colspan="3">
       <?php $this->getOwner()->renderFile($itemViewFile, array(
-        'data' => $data[0],
+        'data' => $data[0]
       )); ?>
     </td>
   </tr>
