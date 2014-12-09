@@ -35,27 +35,29 @@ To add YiiCalendar in very basic, default look, put this to any of your views or
     
 If, for example, you'd like to have week-only calendar (showing only current week, not entire month) with Monday as first day of each week (Sunday is default), then you should pass some additional parameters:
 
-    <?php $this->widget('ext.yiicalendar.YiiCalendar', array
+```php
+<?php $this->widget('ext.yiicalendar.YiiCalendar', array
+(
+    'dataProvider'=>array
     (
-        'dataProvider'=>array
+        'pagination'=>array
         (
-            'pagination'=>array
-            (
-                'pageSize'=>'week',
-                'isMondayFirst'=>TRUE
-            )
-          )
-    )); ?>
+            'pageSize'=>'week',
+            'isMondayFirst'=>TRUE
+        )
+      )
+)); ?>
+```
     
-All properties, that you can use in widget initialization are the same as in case of [original extension](http://www.yiiframework.com/extension/ecalendarview/#hh3), with exception for `itemView` property, which has been enhanced.
-
-As in `ecalendarview` extension, it specifies view to be used to render each day. If this is not defined, a default view is used. Inside that view following data can be accessed (new property in bold):
+The `itemView` property has been enhanced. As in `ecalendarview` extension, it specifies view to be used to render each day. If this is not defined, a default view is used. Inside that view following data can be accessed (new property in bold):
 
 - [CBaseController](http://www.yiiframework.com/doc/api/1.1/CBaseController/) `$this` - the controller,
 - [DateTime](http://php.net/manual/en/class.datetime.php) `$data->date` - the date object of particular day,
 - boolean `$data->isCurrent` - whether particular day is selected (`TRUE`),
 - **array `$data->link` - the link data for particular day** (see last section of this document),
 - boolean `$data->isRelevant` - whether particular day is part of current month (`TRUE`) or only a padding in the beginning and end of the month page (`FALSE`).
+
+All other properties are the same as in case of [original extension](http://www.yiiframework.com/extension/ecalendarview/#hh3).
 
 ## i18n
 
@@ -95,3 +97,47 @@ I didn't change this, because I didn't have enough time. Refer to `YiiCalendar::
 ## Days links
 
 This extension introduces new property called `linksArray`, which is an array of `'date'=>'data'` sets, used to add links to certain dates in the calendar.
+
+The `date` part (array's key) can be in any date or time format, that is accepted by PHP's [`DateTime` class constructor](http://php.net/manual/en/datetime.construct.php). For example, if using timestamps, you must begin each with `@`. See "[Supported Date and Time Formats](http://php.net/manual/en/datetime.formats.php)" chapter in PHP documentation for details.
+
+If you're using default view (see information about `itemView` property above or in [original `ecalendarview` extension documentation](http://www.yiiframework.com/extension/ecalendarview/#hh3), the `data` part (array's value) can be:
+
+- a string -- it will be used as URL under particular day's number,
+- an array -- use it as you use `htmlOptions` everywhere around (for example in [`CHtml::link()` method](http://www.yiiframework.com/doc/api/1.1/CHtml/#link-detail)).
+
+If you're using your own view to render calendar cells, the `data` part can be of any type, but you have to process it yourself in your view.
+
+First approach (using data as string) let's you add a quick links to selected dates in calendar:
+
+```php
+<?php $this->widget('ext.yiicalendar.YiiCalendar', array
+(
+    'linksArray'=>array
+    (
+        '@1418123575'=>'http://www.example.com',
+        '2014-12-13'=>'http://www.exampleblog.com/date/2014/12/13'
+    )
+)); ?>
+```
+
+Second approach is a bit more complex:
+
+```php
+<?php $this->widget('ext.yiicalendar.YiiCalendar', array
+(
+    'linksArray'=>array
+    (
+        '@1418123575'=>'http://127.0.0.1/ustv/htdocs/team/index',
+        '2014-12-13'=>array
+        (
+            'title'=>'Hoop and goo! :]',
+            'style'=>'font-weight: bold; color: red;',
+            'href'=>'http://127.0.0.1/ustv/htdocs/team/index'
+        )
+    )
+)); ?>
+```
+
+But gives you much more power in defining links in your calendar. You can set title, special styling, class or anything, what is supported by standard, Yii 1.x `htmlOptions` array. Yes, you can even attach Javascript events through [`clientChange`](http://www.yiiframework.com/doc/api/1.1/CHtml#clientChange-detail) and use non-standard attributes (like `data-`), for example to use Twitter Bootstrap's [tooltips](http://getbootstrap.com/javascript/#tooltips-usage), [popovers](http://getbootstrap.com/javascript/#popovers-usage) or [modals](http://getbootstrap.com/javascript/#modals-usage). Or anything else from any other library. Sky and your imagination are the only limits.
+
+Of course, with any of above approaches you can set link for _any_ date, not just those currently seen in viewport.
