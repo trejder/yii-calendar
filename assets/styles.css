@@ -14,8 +14,8 @@
 table.yiicalendar thead th,
 table.yiicalendar tbody td
 {
-  padding: 2px;
-  text-align: center;
+    padding: 2px;
+    text-align: center;
 }
 
 table.yiicalendar thead th
@@ -37,8 +37,9 @@ table.yiicalendar tbody td
 
 table.yiicalendar td.current
 {
-  background-color: #C3D6E4;
-  border: 1px solid #C3D6E4;
+    opacity: 0.5;
+    background-color: #C3D6E4;
+    border: 1px solid #C3D6E4;
 }
 
 table.yiicalendar td.not-relevant {color: rgb(221, 221, 221);}
