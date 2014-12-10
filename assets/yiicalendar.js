@@ -16,7 +16,7 @@
     this.on('click', '.navigation-link', function() {
       $.ajax({
         'url': $(this).attr('href'),
-        'context': $(this).parents('.e-calendar-view'),
+        'context': $(this).parents('.yiicalendar'),
         'cache': false,
         'success': function(data) {
           var calendarId = '#' + this.attr('id');

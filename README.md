@@ -78,9 +78,9 @@ Original [`ecalendarview` extension](http://www.yiiframework.com/extension/ecale
 These changes includes:
 
 - current day is marked with coloured background (`background-color: #C3D6E4;`),
-- calendar days are squares and have bigger font size (`table.e-calendar-view tbody td`),
-- arrows (navigation links) have different style (`table.e-calendar-view a.navigation-link`),
-- calendar headers have background and border styled in greys (`table.e-calendar-view thead th`).
+- calendar days are squares and have bigger font size (`table.yiicalendar tbody td`),
+- arrows (navigation links) have different style (`table.yiicalendar a.navigation-link`),
+- calendar headers have background and border styled in greys (`table.yiicalendar thead th`).
 
 You can override these styles per application by adding `/css/calendar.css` (path is relative to app's root) file and running widget with `'cssFile'=>'css/calendar.css'` property set (you can, of course, change or adapt paths as much as you want). You can also change these styles permanently (edit `extensions/yiicalendar/assets/styles.css` file). But this is **highly not recommended way**.
 

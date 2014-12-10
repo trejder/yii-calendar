@@ -11,14 +11,14 @@
  * @license   http://opensource.org/licenses/MIT (MIT license)
  */
 
-table.e-calendar-view thead th,
-table.e-calendar-view tbody td
+table.yiicalendar thead th,
+table.yiicalendar tbody td
 {
   padding: 2px;
   text-align: center;
 }
 
-table.e-calendar-view thead th
+table.yiicalendar thead th
 {
     color: #777;
     font-weight: normal;
@@ -26,21 +26,21 @@ table.e-calendar-view thead th
     border: 1px solid #ccc;
 }
 
-table.e-calendar-view thead tr.weekdays-row th {font-size: 14px;}
+table.yiicalendar thead tr.weekdays-row th {font-size: 14px;}
 
-table.e-calendar-view tbody td
+table.yiicalendar tbody td
 {
     width: 50px;
     height: 50px;
     font-size: 18px;
 }
 
-table.e-calendar-view td.current
+table.yiicalendar td.current
 {
   background-color: #C3D6E4;
   border: 1px solid #C3D6E4;
 }
 
-table.e-calendar-view td.not-relevant {color: rgb(221, 221, 221);}
+table.yiicalendar td.not-relevant {color: rgb(221, 221, 221);}
 
-table.e-calendar-view a.navigation-link {font-size: 21px}
+table.yiicalendar a.navigation-link {font-size: 21px}

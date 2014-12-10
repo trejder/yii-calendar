@@ -15,7 +15,7 @@
 
 <?php $view = $pagination->getPageSize(); ?>
 
-<table id="<?php echo $id; ?>" class="e-calendar-view <?php echo $view; ?>">
+<table id="<?php echo $id; ?>" class="yiicalendar <?php echo $view; ?>">
   <?php $this->render($view, array(
     'id' => $id,
     'data' => $data,

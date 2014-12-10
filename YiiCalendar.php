@@ -204,7 +204,7 @@ class YiiCalendar extends CWidget {
       $publishedJsFilePath = Yii::app()->getAssetManager()->publish($jsFilePath);
 
       Yii::app()->clientScript->registerScriptFile($publishedJsFilePath, CClientScript::POS_END);
-      Yii::app()->clientScript->registerScript('e-calendar-view', 'jQuery(\'.e-calendar-view\').yiicalendar();');
+      Yii::app()->clientScript->registerScript('yiicalendar', 'jQuery(\'.yiicalendar\').yiicalendar();');
     }
 
     /**
