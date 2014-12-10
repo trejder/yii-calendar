@@ -84,7 +84,7 @@ These changes includes:
 
 You can override these styles per application by adding `/css/calendar.css` (path is relative to app's root) file and running widget with `'cssFile'=>'css/calendar.css'` property set (you can, of course, change or adapt paths as much as you want). You can also change these styles permanently (edit `extensions/yiicalendar/assets/styles.css` file). But this is **highly not recommended way**.
 
-I have also changed line arrows (`&larr;` and `&rarr;`) are changes to double arrows (`&laquo;` and `&raquo;`) in navigation links pane.
+I have also changed line arrows (`&larr;` and `&rarr;`) are changes to double arrows (`&laquo;` and `&raquo;`) in navigation links pane. And made `isMondayFirst` default to `TRUE` (as in most modern calendars).
 
 ## Assets registering issue
 
