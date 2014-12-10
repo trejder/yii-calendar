@@ -67,6 +67,12 @@ Same rules apply as in case of [`ecalendarview` extension](http://www.yiiframewo
 
 Version 1.0:
 
+- some very minor changes to CSS styles,
+- added fade / dim / opacity effect, when updating calendar via AJAX,
+- made `isMondayFirst` default to `TRUE` (as in most modern calendars).
+
+Version 1.0:
+
 - initial version with changes (toward original extension) mentioned above and below.
 
 If you'd like to see changelog for the original extension, follow [this link](http://www.yiiframework.com/extension/ecalendarview/#hh5).
@@ -84,7 +90,13 @@ These changes includes:
 
 You can override these styles per application by adding `/css/calendar.css` (path is relative to app's root) file and running widget with `'cssFile'=>'css/calendar.css'` property set (you can, of course, change or adapt paths as much as you want). You can also change these styles permanently (edit `extensions/yiicalendar/assets/styles.css` file). But this is **highly not recommended way**.
 
-I have also changed line arrows (`&larr;` and `&rarr;`) are changes to double arrows (`&laquo;` and `&raquo;`) in navigation links pane. And made `isMondayFirst` default to `TRUE` (as in most modern calendars).
+## Changes to calendar
+
+In addition to CSS changes, I have also changed:
+
+- added fade / dim / opacity effect, when updating calendar via AJAX,
+- made `isMondayFirst` default to `TRUE` (as in most modern calendars),
+- line arrows (`&larr;` and `&rarr;`) are changes to double arrows (`&laquo;` and `&raquo;`) in navigation links pane.
 
 ## Assets registering issue
 
