@@ -11,20 +11,29 @@
  * @license   http://opensource.org/licenses/MIT (MIT license)
  */
 
-!function($) {
-  $.fn.yiicalendar = function() {
-    this.on('click', '.navigation-link', function() {
-      $.ajax({
-        'url': $(this).attr('href'),
-        'context': $(this).parents('.yiicalendar'),
-        'cache': false,
-        'success': function(data) {
-          var calendarId = '#' + this.attr('id');
-          var calendarData = $(calendarId, data);
-          this.html(calendarData.html());
-        }
-      });
-      return false;
-    });
-  }
+!function($)
+{
+    $.fn.yiicalendar = function()
+    {
+        this.on('click', '.navigation-link', function()
+        {
+            $('table.yiicalendar').css('opacity', 0.1);
+
+            // $.ajax
+            // ({
+            //     'url': $(this).attr('href'),
+            //     'context': $(this).parents('.yiicalendar'),
+            //     'cache': false,
+            //     'success': function(data)
+            //     {
+            //         var calendarId = '#' + this.attr('id');
+            //         var calendarData = $(calendarId, data);
+
+            //         this.html(calendarData.html());
+            //     }
+            // });
+
+            return false;
+        });
+    }
 }(window.jQuery);
