@@ -33,7 +33,6 @@ table.e-calendar-view tbody td
 
 table.e-calendar-view td.current
 {
-  font-weight: bold;
   background-color: #C3D6E4;
   border: 1px solid #C3D6E4;
 }
