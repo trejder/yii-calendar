@@ -48,7 +48,7 @@ class YiiCalendarPagination extends CComponent {
     $this->_currentDate = $this->createTodayDate();
     $this->_pageSize = YiiCalendarPageSize::MONTH;
     $this->_pageIndex = 0;
-    $this->_isMondayFirst = false;
+    $this->_isMondayFirst = TRUE;
     $this->_pageIndexVar = 'page';
 
     foreach($config as $key => $value) {
