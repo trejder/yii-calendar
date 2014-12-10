@@ -9,6 +9,7 @@ This is an enhanced and partially rewritten version of [`ecalendarview` extensio
 - shorter names for classes (widgets) and extension itself :],
 - some basic, default CSS styling (original extension has no default styling),
 - an ability to pass additional data to make selected days a links to some URLs,
+- a simple fade effect, when updating calendar via AJAX, to notify user, that something is going on,
 - fixed path including (no need to add `Yii::setPathOfAlias('ecalendarview', ...)` in config file.
 
 In addition `doc` folder has been removed from original repository, as it contains only files relevant to base `ecalendarview` extension (ancestor), not to this extension.
@@ -65,7 +66,7 @@ Same rules apply as in case of [`ecalendarview` extension](http://www.yiiframewo
 
 ## Changelog
 
-Version 1.0:
+Version 1.1:
 
 - some very minor changes to CSS styles,
 - added fade / dim / opacity effect, when updating calendar via AJAX,
