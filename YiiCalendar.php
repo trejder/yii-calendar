@@ -72,7 +72,7 @@ class YiiCalendar extends CWidget {
     $this->_linksArray = array();
     $this->_ajaxUpdate = true;
 
-    $this->getDataProvider()->getPagination()->setPageIndexVar($this->getId(true) . '_page');
+    $this->getDataProvider()->getPagination()->setPageIndexVar($this->getId(true) . '_yiicalendarpage');
   }
 
   /**
