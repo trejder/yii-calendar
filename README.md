@@ -14,7 +14,9 @@ This is an enhanced and partially rewritten version of [`ecalendarview` extensio
 
 In addition `doc` folder has been removed from original repository, as it contains only files relevant to base `ecalendarview` extension (ancestor), not to this extension.
 
-**Read through [original `ecalendarview` extension's page](http://www.yiiframework.com/extension/ecalendarview/) for all required details. This document only contains changes and differences between `yiicalendar` and `ecalendarview` extensions.**
+_Read through [original `ecalendarview` extension's page](http://www.yiiframework.com/extension/ecalendarview/) for all required details. This document only contains changes and differences between `yiicalendar` and `ecalendarview` extensions._
+
+**This project ABANDONED, because I don't code in Yii1 anymore! There is no wiki, issues and no support. There will be no future updates. Unfortunately, you're on your own.**
 
 ## Features
 
@@ -153,3 +155,5 @@ Second approach is a bit more complex (but gives you much more power in defining
 You can set title, special styling, class or anything, what is supported by standard, Yii 1.x `htmlOptions` array. Yes, you can even attach Javascript events through [`clientChange`](http://www.yiiframework.com/doc/api/1.1/CHtml#clientChange-detail) and use non-standard attributes (like `data-`), for example to use Twitter Bootstrap's [tooltips](http://getbootstrap.com/javascript/#tooltips-usage), [popovers](http://getbootstrap.com/javascript/#popovers-usage) or [modals](http://getbootstrap.com/javascript/#modals-usage). Or anything else from any other library. Sky and your imagination are the only limits.
 
 Of course, with any of above methods you can set link for _any_ date, not just those in current month.
+
+**This project ABANDONED, because I don't code in Yii1 anymore! There is no wiki, issues and no support. There will be no future updates. Unfortunately, you're on your own.**
